@@ -11,9 +11,6 @@ function ChangeButton() {
     "button",
     {
       type: "button",
-      onClick: () => {
-        render();
-      },
     },
     "인사말"
   );
@@ -28,11 +25,6 @@ const reactDomRoot = ReactDOM.createRoot(rootElement);
 
 const keys = Object.keys(Greeting);
 
-function render() {
-  const key = keys[Math.floor(Math.random() * keys.length)];
+const key = keys[Math.floor(Math.random() * keys.length)];
 
-  // 이전에 렌더링 했던 ReactDOM Tree와 다시 렌더링하는 ReactDOM Tree 비교, 변경이 있다면 DOM에 커밋
-  reactDomRoot.render(React.createElement(Wrapper, { message: Greeting[key] }));
-}
-
-render();
+reactDomRoot.render(React.createElement(Wrapper, { message: Greeting[key] }));
