@@ -8,10 +8,10 @@ interface BoxProps {
   // 선택
   style?: Record<string, string | number>;
   size?: "small" | "big";
-  className: string;
+  className?: string;
 }
 
-export default function Box({ style, size, className, children = "박스" }: BoxProps) {
+export default function Box({ style, size, className, children = "박스", ...rest }: BoxProps) {
   const sizeClassName = size ? ` box--${size}` : "";
   const newClassName = className ? ` ${className}` : "";
 
@@ -27,6 +27,7 @@ export default function Box({ style, size, className, children = "박스" }: Box
         backgroundColor: "#171c28",
         ...style,
       },
+      ...rest,
     },
     // ...children
     children
