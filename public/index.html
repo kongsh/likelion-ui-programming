@@ -9,17 +9,12 @@
     <script type="module" data-library-name="ts-browser" data-library-url="https://github.com/klesun/ts-browser">
       import { loadModule } from "https://klesun.github.io/ts-browser/src/ts-browser.js";
 
-      // loadModule은 Promise 반환
-      loadModule("./scripts/vanilla-demo.ts");
-      loadModule("./scripts/react-demo.ts");
+      loadModule("./scripts/main.ts");
     </script>
   </head>
 
   <body>
-    <div id="vanilla" class="app">
-      <!-- <h1>안녕!</h1> -->
-      <!-- <button type="button">인사말</button> -->
-    </div>
+    <noscript> 이 애플리케이션은 JS로 작동합니다. JS를 사용할 수 있는 환경으로 접속해주세요. </noscript>
 
     <div id="react" class="app"></div>
   </body>
