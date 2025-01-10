@@ -45,13 +45,9 @@ function HeadingDemo(props: { elementName: string; content: string }): React.Rea
   return React.createElement(props.elementName, {}, props.content);
 }
 
-const element1 = React.createElement(HeadingDemo, {
+const element = React.createElement(HeadingDemo, {
   elementName: "h1",
   content: "안녕!",
 });
-const element2 = React.createElement(HeadingDemo, {
-  elementName: "p",
-  content: "안녕하세요",
-});
 
-console.log(element1, element2);
+console.log(element);

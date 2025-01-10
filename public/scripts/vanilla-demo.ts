@@ -18,10 +18,10 @@ const changeBtn = document.createElement("button");
 changeBtn.setAttribute("type", "button");
 changeBtn.textContent = "인사말";
 
-console.group("DOM 요소 노드");
-console.dir(heading);
-console.dir(changeBtn);
-console.groupEnd();
+// console.group("DOM 요소 노드");
+// console.dir(heading);
+// console.dir(changeBtn);
+// console.groupEnd();
 
 // 마운트 할 DOM 노드를 참조
 const app = document.getElementById("vanilla");
