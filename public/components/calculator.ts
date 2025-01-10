@@ -4,21 +4,25 @@ import React from "../lib/react.js";
 // h = hyperscript
 const { createElement: h } = React;
 
-const operations = {
-  "+": (left: number, right: number): number => left + right,
-  "-": (left: number, right: number): number => left - right,
-  "*": (left: number, right: number): number => left * right,
-  "/": (left: number, right: number): number => left / right,
+type OperationFn = (left: number, right: number) => number;
+type Operator = "-" | "+" | "*" | "/" | "%";
+
+const operations: Record<Operator, OperationFn> = {
+  "+": (left, right) => left + right,
+  "-": (left, right) => left - right,
+  "*": (left, right) => left * right,
+  "/": (left, right) => left / right,
+  "%": (left, right) => left % right,
 };
 
-export default function Calculator(props: { elements?: [number, number]; operator: "-" | "+" | "*" | "/" | "%" }) {
-  const operator = props.operator ?? "+";
-
+export default function Calculator({ elements, operator = "+" }: { elements?: [number, number]; operator: Operator }) {
   let left = 0;
   let right = 0;
 
-  if (props.elements) {
-    [left, right] = props.elements;
+  if (elements) {
+    const [l, r] = elements;
+    left = l ?? left;
+    right = r ?? right;
   }
 
   const outputValue: number = operations[operator](left, right);
