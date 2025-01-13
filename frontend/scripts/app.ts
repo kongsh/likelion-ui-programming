@@ -13,9 +13,9 @@ function App(): React.ReactNode {
       lang: "en",
       style: appStyles,
     },
-    h(Switch, { id: "switch-1", labelText: "switch-1", showOnOffText: true }),
-    h(Switch, { id: "switch-2", labelText: "switch-2", active: true, showOnOffText: true }),
-    h(Switch, { id: "switch-3", labelText: "switch-3", disabled: true })
+    h(Switch, { id: "switch-1", labelText: "switch-1", onToggle: () => console.log("switch-1 clicked") }),
+    h(Switch, { id: "switch-2", labelText: "switch-2", active: true }),
+    h(Switch, { id: "switch-3", labelText: "switch-3", disabled: true, onToggle: () => console.log("switch-3 clicked") })
   );
 }
 
