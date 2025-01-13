@@ -1,5 +1,13 @@
-import React from "../lib/react.js";
+import React from '../lib/react.js';
 
-export default function Heading(props: { greetingMessage: string; lang: string }): React.ReactElement {
-  return React.createElement("h1", { lang: props.lang.toLowerCase() }, props.greetingMessage);
+function Heading(props: { language: string; greetingMessage: string }) {
+  return React.createElement(
+    'h1',
+    {
+      lang: props.language.toLowerCase(),
+    },
+    props.greetingMessage
+  );
 }
+
+export default Heading;

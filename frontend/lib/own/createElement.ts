@@ -1,6 +1,10 @@
-function createElement(type, props = {}, ...children) {
+function createElement(
+  type: string,
+  props: Record<string, any> = {},
+  ...children: any[]
+) {
   return {
-    $$typeof: Symbol("own.element"),
+    $$typeof: Symbol('own.element'),
     key: null,
     type,
     props: {

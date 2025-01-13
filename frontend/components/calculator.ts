@@ -1,21 +1,25 @@
-import React from "../lib/react.js";
+import React from '../lib/react.js';
 
-// HTML = Hyper Text Markup Language
-// h = hyperscript
 const { createElement: h } = React;
 
 type OperationFn = (left: number, right: number) => number;
-type Operator = "-" | "+" | "*" | "/" | "%";
+type Operator = '+' | '-' | '*' | '/' | '**';
 
 const operations: Record<Operator, OperationFn> = {
-  "+": (left, right) => left + right,
-  "-": (left, right) => left - right,
-  "*": (left, right) => left * right,
-  "/": (left, right) => left / right,
-  "%": (left, right) => left % right,
+  '+': (left, right) => left + right,
+  '-': (left, right) => left - right,
+  '*': (left, right) => left * right,
+  '/': (left, right) => left / right,
+  '**': (left, right) => left ** right,
 };
 
-export default function Calculator({ elements, operator = "+" }: { elements?: [number, number]; operator: Operator }) {
+function Calculator({
+  elements,
+  operator = '+',
+}: {
+  elements?: [number, number];
+  operator: Operator;
+}) {
   let left = 0;
   let right = 0;
 
@@ -28,10 +32,17 @@ export default function Calculator({ elements, operator = "+" }: { elements?: [n
   const outputValue: number = operations[operator](left, right);
 
   return h(
-    "div",
+    'div',
     {
-      className: "calculator",
+      className: 'calculator',
     },
-    h("code", null, `${left} ${operator} ${right} = `, h("output", null, outputValue))
+    h(
+      'code',
+      null,
+      `${left} ${operator} ${right} = `,
+      h('output', null, outputValue)
+    )
   );
 }
+
+export default Calculator;

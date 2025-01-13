@@ -1,35 +1,43 @@
-import React from "../lib/react.js";
-
-const { createElement: h } = React;
+import React from '../lib/react.js';
 
 interface BoxProps {
-  // 필수
+  // 필수 (required)
   children: React.ReactNode;
-  // 선택
-  style?: Record<string, string | number>;
-  size?: "small" | "big";
+  // 선택 (optional)
+  size?: 'small' | 'big';
   className?: string;
+  style?: Record<string, string | number>;
 }
 
-export default function Box({ style, size, className, children = "박스", ...rest }: BoxProps) {
-  const sizeClassName = size ? ` box--${size}` : "";
-  const newClassName = className ? ` ${className}` : "";
+function Box({
+  children,
+  size,
+  className = '',
+  style,
+  ...restProps // 나머지 props
+}: BoxProps) {
+  console.log(restProps);
 
-  const classNames = `box${sizeClassName}${newClassName}`;
+  let sizeClassName = '';
 
-  return h(
-    // type
-    "div",
-    // props
+  if (size) {
+    sizeClassName = `box--${size}`;
+  }
+
+  const classNames = `box ${sizeClassName} ${className}`.trim();
+
+  return React.createElement(
+    'div',
     {
       className: classNames,
       style: {
-        backgroundColor: "#171c28",
+        backgroundColor: '#171c28',
         ...style,
       },
-      ...rest,
+      ...restProps, // { id, title, translate, 'aria-label' }
     },
-    // ...children
     children
   );
 }
+
+export default Box;

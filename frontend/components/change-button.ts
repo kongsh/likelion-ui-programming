@@ -1,17 +1,19 @@
-import React from "../lib/react.js";
+import React from '../lib/react.js';
 
 // dummy function
 // const render = () => {};
 
-export default function ChangeButton(props: { render: () => void }): React.ReactElement {
+function ChangeButton(props: { render: () => void }): React.ReactElement {
   return React.createElement(
-    "button",
+    'button',
     {
-      type: "button",
+      type: 'button',
       onClick: () => {
         props.render();
       },
     },
-    "인사말"
+    '인사말'
   );
 }
+
+export default ChangeButton;
