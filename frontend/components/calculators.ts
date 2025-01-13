@@ -20,16 +20,15 @@ export default function Calculators() {
   );
 
   // props.children은 배열 (고유 값으로 각 항목에 key 설정 권장)
-  return [
-    // 1
-    h(Calculator, { key: "child-1" }),
-    // 2
-    h(Calculator, { key: "child-2", operator: "-" }),
-    // 3
-    h(Calculator, { key: "child-3", elements: [10, 2] }),
-    // 4
-    h(Calculator, { key: "child-4", elements: [10, -3], operator: "*" }),
-    // 5
-    h(Calculator, { key: "child-5", elements: [, 6], operator: "/" }),
-  ];
+  // return (
+  //   h(Calculator, { key: "child-1" }),
+  //   // 2
+  //   h(Calculator, { key: "child-2", operator: "-" }),
+  //   // 3
+  //   h(Calculator, { key: "child-3", elements: [10, 2] }),
+  //   // 4
+  //   h(Calculator, { key: "child-4", elements: [10, -3], operator: "*" }),
+  //   // 5
+  //   h(Calculator, { key: "child-5", elements: [, 6], operator: "/" })
+  // );
 }
