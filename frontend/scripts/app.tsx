@@ -2,41 +2,57 @@ import Switch from "../components/switch.tsx";
 import jsxRuntime from "../lib/react/jsx.runtime.js";
 import React from "../lib/react.js";
 
-/* 
-  순수 함수
-*/
-
-// 순수함의 기준은? (함수형 프로그래밍 기준)
-// 순수함 : "함수의 실행 결과 예측 가능".
-
-// 순수함
-function multiply(x: number, y: number): number {
-  return x * y;
-}
-
-multiply(4, 5);
-
-// query 함수는 순수하지 않음, 실행 결과가 예측 불가하기 때문
-function query(selector: string, context = document): HTMLElement | null {
-  return context.querySelector(selector);
-}
-
-query(".yamoo9");
-
 // hyperscript
 // const h = React.createElement;
 
+type ListItem = {
+  id: string;
+  labelText: string;
+  active?: boolean;
+  disabled?: boolean;
+  showOnOffText?: boolean;
+  onToggle?: () => void;
+};
+
+type List = ListItem[];
+
+// 데이터 추출
+const list: List = [
+  {
+    id: "switch-1",
+    labelText: "switch-1",
+    onToggle: () => console.log("switch-1 clicked"),
+  },
+  {
+    id: "switch-2",
+    labelText: "switch-2",
+    active: true,
+  },
+  {
+    id: "switch-3",
+    labelText: "switch-3",
+    disabled: true,
+    onToggle: () => console.log("switch-3 clicked"),
+  },
+];
+
 function App(): React.ReactNode {
-  // React Element를 생성하는 함수 실행 결과 반환
-  // React 엘리먼트 반환
   const handleSwitch1Toggle = () => console.log("switch-1 clicked");
   const handleSwitch3Toggle = () => console.log("switch-3 clicked");
 
+  const renderListItemElements: ListItem[] = [];
+
+  for (let i: number = 0, l: number = list.length; i < l; ++i) {
+    const listItem: ListItem = list[i];
+
+    renderListItemElements.push(<Switch id={listItem.id} labelText={listItem.labelText} active={listItem.active} disabled={listItem.disabled} onToggle={listItem.onToggle} showOnOffText={listItem.showOnOffText}></Switch>);
+  }
+
+  renderListItemElements.push(<Switch id="switch-4" labelText="Read a book" active showOnOffText></Switch>);
+
   return (
     <div lang="en" style={appStyles}>
-      <Switch id="switch-1" labelText="switch-1" onToggle={handleSwitch1Toggle}></Switch>
-      <Switch id="switch-2" labelText="switch-2" active></Switch>
-      <Switch id="switch-3" labelText="switch-3" disabled onToggle={handleSwitch3Toggle}></Switch>
+      {renderListItemElements}
     </div>
   );
 }
