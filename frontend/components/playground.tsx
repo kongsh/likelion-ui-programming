@@ -1,21 +1,20 @@
 import React from "../lib/react.js";
 
-let renderCount: number = 0;
-
 export default function Playground() {
-  const loveIcon = "❤";
-
-  console.log("렌더링 횟수: ", `${++renderCount}회`);
+  // 구조 분해 할당 가능
+  const [loveIcons, setLoveIcons] = React.useState("❤");
+  console.log(loveIcons);
 
   return (
     <div className="playground">
       <h1>플레이그라운드</h1>
-      <p className="message">I LOVE {loveIcon}</p>
+      <p className="message">I LOVE {loveIcons}</p>
       <button
         type="button"
         aria-label="하트"
         onClick={() => {
-          console.log("love");
+          setLoveIcons(loveIcons + "❤");
+          console.log("love +1", loveIcons);
         }}
       >
         <svg width="24" height="24" fill="none" strokeWidth={1.5} stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

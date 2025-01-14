@@ -43,7 +43,7 @@ function App(): React.ReactNode {
 
   return (
     <div lang="en" style={appStyles}>
-      <SwitchList items={list}></SwitchList>
+      {/* <SwitchList items={list}></SwitchList> */}
       <Playground></Playground>
     </div>
   );

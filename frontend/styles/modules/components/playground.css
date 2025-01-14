@@ -2,13 +2,13 @@
   margin: 40px;
 
   h1 {
-    font-size: 32px;
+    font-size: 14px;
     font-weight: 400;
     color: #0077c7;
   }
 
   .message {
-    font-size: 14px;
+    font-size: 40px;
     font-weight: 800;
     color: #0077c7;
   }
