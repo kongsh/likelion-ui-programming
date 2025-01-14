@@ -7,16 +7,6 @@ interface SwitchListProps {
 }
 
 export default function SwitchList(props: SwitchListProps) {
-  const renderListItems = props.items.map((item) => {
-    return (
-      <li>
-        <Switch id={item.id} labelText={item.labelText} active={item.active} disabled={item.disabled} onToggle={item.onToggle} showOnOffText={item.showOnOffText}></Switch>
-      </li>
-    );
-  });
-
-  console.log({ renderListItems });
-
   return (
     <ul
       className="switch-list"
@@ -26,7 +16,17 @@ export default function SwitchList(props: SwitchListProps) {
         gap: 12,
       }}
     >
-      {renderListItems}
+      {renderListItems(props.items)}
     </ul>
   );
 }
+
+const renderListItems = (items: List): React.ReactElement[] => {
+  return items.map((item) => {
+    return (
+      <li>
+        <Switch id={item.id} labelText={item.labelText} active={item.active} disabled={item.disabled} onToggle={item.onToggle} showOnOffText={item.showOnOffText}></Switch>
+      </li>
+    );
+  });
+};
