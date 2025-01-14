@@ -1,6 +1,7 @@
 import Switch from "../components/switch.tsx";
 import React from "../lib/react.js";
 import SwitchList from "../components/switch-list.tsx";
+import Playground from "../components/playground.tsx";
 
 // hyperscript
 // const h = React.createElement;
@@ -43,6 +44,7 @@ function App(): React.ReactNode {
   return (
     <div lang="en" style={appStyles}>
       <SwitchList items={list}></SwitchList>
+      <Playground></Playground>
     </div>
   );
 }

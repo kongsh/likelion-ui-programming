@@ -16,17 +16,13 @@ export default function SwitchList(props: SwitchListProps) {
         gap: 12,
       }}
     >
-      {renderListItems(props.items)}
+      {props.items.map((item, index) => {
+        return (
+          <li key={index}>
+            <Switch id={item.id} labelText={item.labelText} active={item.active} disabled={item.disabled} onToggle={item.onToggle} showOnOffText={item.showOnOffText}></Switch>
+          </li>
+        );
+      })}
     </ul>
   );
 }
-
-const renderListItems = (items: List): React.ReactElement[] => {
-  return items.map((item) => {
-    return (
-      <li>
-        <Switch id={item.id} labelText={item.labelText} active={item.active} disabled={item.disabled} onToggle={item.onToggle} showOnOffText={item.showOnOffText}></Switch>
-      </li>
-    );
-  });
-};
