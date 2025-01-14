@@ -1,5 +1,8 @@
 import Switch from "../components/switch.tsx";
+import jsxRuntime from "../lib/react/jsx.runtime.js";
 import React from "../lib/react.js";
+
+const { jsx, Fragment } = jsxRuntime;
 
 // hyperscript
 // const h = React.createElement;
@@ -17,17 +20,6 @@ function App(): React.ReactNode {
       <Switch id="switch-3" labelText="switch-3" disabled onToggle={handleSwitch3Toggle}></Switch>
     </div>
   );
-
-  // // return h(
-  //   "div",
-  //   {
-  //     lang: "en",
-  //     style: appStyles,
-  //   },
-  //   // h(Switch, { id: "switch-1", labelText: "switch-1", onToggle: () => console.log("switch-1 clicked") }),
-  //   // h(Switch, { id: "switch-2", labelText: "switch-2", active: true }),
-  //   // h(Switch, { id: "switch-3", labelText: "switch-3", disabled: true, onToggle: () => console.log("switch-3 clicked") })
-  // );
 }
 
 const appStyles = {
