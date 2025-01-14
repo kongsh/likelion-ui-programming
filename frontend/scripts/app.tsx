@@ -1,6 +1,6 @@
 import Switch from "../components/switch.tsx";
-import jsxRuntime from "../lib/react/jsx.runtime.js";
 import React from "../lib/react.js";
+import SwitchList from "../components/switch-list.tsx";
 
 // hyperscript
 // const h = React.createElement;
@@ -16,43 +16,33 @@ type ListItem = {
 
 type List = ListItem[];
 
-// 데이터 추출
-const list: List = [
-  {
-    id: "switch-1",
-    labelText: "switch-1",
-    onToggle: () => console.log("switch-1 clicked"),
-  },
-  {
-    id: "switch-2",
-    labelText: "switch-2",
-    active: true,
-  },
-  {
-    id: "switch-3",
-    labelText: "switch-3",
-    disabled: true,
-    onToggle: () => console.log("switch-3 clicked"),
-  },
-];
-
 function App(): React.ReactNode {
   const handleSwitch1Toggle = () => console.log("switch-1 clicked");
   const handleSwitch3Toggle = () => console.log("switch-3 clicked");
 
-  const renderListItemElements: ListItem[] = [];
-
-  for (let i: number = 0, l: number = list.length; i < l; ++i) {
-    const listItem: ListItem = list[i];
-
-    renderListItemElements.push(<Switch id={listItem.id} labelText={listItem.labelText} active={listItem.active} disabled={listItem.disabled} onToggle={listItem.onToggle} showOnOffText={listItem.showOnOffText}></Switch>);
-  }
-
-  renderListItemElements.push(<Switch id="switch-4" labelText="Read a book" active showOnOffText></Switch>);
+  // 데이터 추출
+  const list: List = [
+    {
+      id: "switch-1",
+      labelText: "Wi-Fi",
+      onToggle: () => console.log("switch-1 clicked"),
+    },
+    {
+      id: "switch-2",
+      labelText: "Bluetooth",
+      active: true,
+    },
+    {
+      id: "switch-3",
+      labelText: "Reduced Motion",
+      disabled: true,
+      onToggle: () => console.log("switch-3 clicked"),
+    },
+  ];
 
   return (
     <div lang="en" style={appStyles}>
-      {renderListItemElements}
+      <SwitchList items={list}></SwitchList>
     </div>
   );
 }
