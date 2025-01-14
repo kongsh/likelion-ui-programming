@@ -2,7 +2,26 @@ import Switch from "../components/switch.tsx";
 import jsxRuntime from "../lib/react/jsx.runtime.js";
 import React from "../lib/react.js";
 
-const { jsx, Fragment } = jsxRuntime;
+/* 
+  순수 함수
+*/
+
+// 순수함의 기준은? (함수형 프로그래밍 기준)
+// 순수함 : "함수의 실행 결과 예측 가능".
+
+// 순수함
+function multiply(x: number, y: number): number {
+  return x * y;
+}
+
+multiply(4, 5);
+
+// query 함수는 순수하지 않음, 실행 결과가 예측 불가하기 때문
+function query(selector: string, context = document): HTMLElement | null {
+  return context.querySelector(selector);
+}
+
+query(".yamoo9");
 
 // hyperscript
 // const h = React.createElement;
