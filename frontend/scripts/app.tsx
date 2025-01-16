@@ -1,7 +1,5 @@
-import Switch from "../components/switch.tsx";
 import React from "../lib/react.js";
 import SwitchList from "../components/switch-list.tsx";
-import Playground from "../components/playground.tsx";
 
 // hyperscript
 // const h = React.createElement;
@@ -18,9 +16,6 @@ type ListItem = {
 type List = ListItem[];
 
 function App(): React.ReactNode {
-  const handleSwitch1Toggle = () => console.log("switch-1 clicked");
-  const handleSwitch3Toggle = () => console.log("switch-3 clicked");
-
   // 데이터 추출
   const list: List = [
     {
@@ -43,8 +38,8 @@ function App(): React.ReactNode {
 
   return (
     <div lang="en" style={appStyles}>
-      {/* <SwitchList items={list}></SwitchList> */}
-      <Playground></Playground>
+      <SwitchList items={list}></SwitchList>
+      {/* <Playground></Playground> */}
     </div>
   );
 }
