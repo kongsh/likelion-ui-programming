@@ -6,7 +6,7 @@ export type ListItem = {
   active?: boolean;
   disabled?: boolean;
   showOnOffText?: boolean;
-  onToggle?: () => void;
+  onChange?: () => void;
 };
 
 export type List = ListItem[];
