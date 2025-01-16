@@ -10,7 +10,7 @@ type ListItem = {
   active?: boolean;
   disabled?: boolean;
   showOnOffText?: boolean;
-  onToggle?: () => void;
+  onChange?: () => void;
 };
 
 type List = ListItem[];
@@ -21,7 +21,7 @@ function App(): React.ReactNode {
     {
       id: "switch-1",
       labelText: "Wi-Fi",
-      onToggle: () => console.log("switch-1 clicked"),
+      onChange: () => console.log("switch-1 clicked"),
     },
     {
       id: "switch-2",
@@ -32,7 +32,7 @@ function App(): React.ReactNode {
       id: "switch-3",
       labelText: "Reduced Motion",
       disabled: true,
-      onToggle: () => console.log("switch-3 clicked"),
+      onChange: () => console.log("switch-3 clicked"),
     },
   ];
 

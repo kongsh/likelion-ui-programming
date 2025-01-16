@@ -18,10 +18,10 @@ interface Switch {
   active?: boolean; // on/off
   disabled?: boolean;
   showOnOffText?: boolean;
-  onToggle?: () => void;
+  onChange?: () => void;
 }
 
-export default function Switch({ id, labelText, active = false, disabled = false, showOnOffText = false, onToggle }: Switch) {
+export default function Switch({ id, labelText, active = false, disabled = false, showOnOffText = false, onChange }: Switch) {
   let switchText: "OFF" | "ON" | null = !showOnOffText ? null : active ? "ON" : "OFF";
 
   let switchTextNode = null;
@@ -35,14 +35,14 @@ export default function Switch({ id, labelText, active = false, disabled = false
   }
 
   const handleKeyControll = (e: KeyboardEvent) => {
-    if (e.key === "Enter") onToggle?.();
+    if (e.key === "Enter") onChange?.();
   };
 
   return (
     <div className="switch">
       <label>
         <span className="label-text">{labelText}</span>
-        <input role="switch" type="checkbox" defaultChecked={active} disabled={disabled} id={id} onClick={onToggle} onKeyUp={handleKeyControll} />
+        <input role="switch" type="checkbox" defaultChecked={active} disabled={disabled} id={id} onClick={onChange} onKeyUp={handleKeyControll} />
         {switchTextNode}
       </label>
     </div>
