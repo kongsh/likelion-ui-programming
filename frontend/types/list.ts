@@ -1,12 +1,12 @@
-import React from "../lib/react.js";
+import React from '../lib/react.js';
 
 export type ListItem = {
   id: string;
-  labelText: string;
   active?: boolean;
   disabled?: boolean;
   showOnOffText?: boolean;
-  onChange?: () => void;
+  children: React.ReactNode;
+  onToggle?: () => void;
 };
 
 export type List = ListItem[];

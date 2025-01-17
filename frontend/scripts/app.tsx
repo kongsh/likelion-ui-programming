@@ -1,52 +1,40 @@
-import React from "../lib/react.js";
-import SwitchList from "../components/switch-list.tsx";
-
-// hyperscript
-// const h = React.createElement;
-
-type ListItem = {
-  id: string;
-  labelText: string;
-  active?: boolean;
-  disabled?: boolean;
-  showOnOffText?: boolean;
-  onChange?: () => void;
-};
-
-type List = ListItem[];
+import React from '../lib/react.js';
+import type { List } from '../types/list.ts';
+import SwitchList from '../components/switch-list.tsx';
 
 function App(): React.ReactNode {
-  // 데이터 추출
   const list: List = [
     {
-      id: "switch-1",
-      labelText: "Wi-Fi",
-      onChange: () => console.log("switch-1 clicked"),
-    },
-    {
-      id: "switch-2",
-      labelText: "Bluetooth",
+      id: 'item-1',
       active: true,
+      children: '와이파이(Wi-Fi)',
     },
     {
-      id: "switch-3",
-      labelText: "Reduced Motion",
+      id: 'item-2',
+      children: '블루투스(Bluetooth)',
+    },
+    {
+      id: 'item-3',
       disabled: true,
-      onChange: () => console.log("switch-3 clicked"),
+      children: '동작 줄이기(Reduced Motion)',
+    },
+    {
+      id: 'item-4',
+      children: '스크린 리더(Screen Reader)',
+      active: true,
     },
   ];
 
   return (
     <div lang="en" style={appStyles}>
-      <SwitchList items={list}></SwitchList>
-      {/* <Playground></Playground> */}
+      <SwitchList items={list} />
     </div>
   );
 }
 
 const appStyles = {
-  display: "flex",
-  flexFlow: "column",
+  display: 'flex',
+  flexFlow: 'column',
   gap: 12,
   padding: 20,
 };
